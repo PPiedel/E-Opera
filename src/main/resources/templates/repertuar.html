@@ -19,14 +19,14 @@
 
         </div>
         <div class="row">
-            <ul class="nav nav-justified ">
-                <li class="active table-bordered" ><a href="">PN<br/>4.11.2016</a></li>
-                <li class="table-bordered"><a href="#">WT<br/>5.11.2016</a></li>
-                <li class="table-bordered"><a href="#">SR<br/>6.11.2016</a></li>
-                <li class="table-bordered"><a href="#">CZW<br/>7.11.2016</a></li>
-                <li class="table-bordered"><a href="#">PT<br/>8.11.2016</a></li>
-                <li class="table-bordered"><a href="#">SB<br/>9.11.2016</a></li>
-                <li class="table-bordered"><a href="#">ND<br/>10.11.2016</a></li>
+            <ul id="menuContainer" th:name="menuContainer" class="nav nav-justified ">
+                <li value="2017/01/15" class="active table-bordered" ><a href="#">PN<br/>15.01.2017</a></li>
+                <li value="2017/01/16"  class="table-bordered"><a href="#">WT<br/>16.01.2016</a></li>
+                <li value="2017/01/17" class="table-bordered"><a href="#">SR<br/>17.01.2016</a></li>
+                <li value="2017/01/18" class="table-bordered"><a href="#">CZW<br/>18.01.2016</a></li>
+                <li value="2017/01/19" class="table-bordered"><a href="#">PT<br/>19.01.2016</a></li>
+                <li value="2017/01/20" class="table-bordered"><a href="#">SB<br/>20.01.2016</a></li>
+                <li value="2017/01/21" class="table-bordered"><a href="#">ND<br/>21.01.2016</a></li>
             </ul>
         </div>
     </nav>
@@ -34,19 +34,19 @@
     <div class="list-group">
             <a href="#" class="list-group-item" th:each="spectacle  : ${spectacles}" >
                 <h4 class="list-group-item-heading" th:text="${spectacle.title}"></h4>
-                <img class="list-group-item-text" style="max-width: 25px" src="/img/clock.png"/>
-                <ul  class="list-inline">
+                <img class="list-group-item-text" style="float:left; max-width: 25px" src="/img/clock.png"/>
+                <ul  style="float: left" class="list-inline">
                     <th:block th:object="${spectacle}">
-                        <li th:each="date : *{dates}" th:text="${#dates.format(date, 'HH:mm')}"></li>
+                        <li class="list-group-item-text" th:each="date : *{dates}" th:text="${#dates.format(date, 'HH:mm')}"></li>
                     </th:block>
                 </ul>
-
-
+                <div style="clear: both"></div>
             </a>
 
     </div>
 
-<script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/repertuar.js"></script>
 </div>
 
 </body>
