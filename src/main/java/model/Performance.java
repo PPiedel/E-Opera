@@ -7,9 +7,11 @@ package model;
 import java.sql.Timestamp;
 
 /**
- * entity class
+ * Klasa implementujaca logike zwiazana z baza danych. Zwiazana z encja Przedstawienie
+ * @author PawełPiędel
  */
 public class Performance {
+
 
     private Integer performanceId;
     private Integer spectacleId;

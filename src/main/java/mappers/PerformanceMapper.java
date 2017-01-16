@@ -20,7 +20,6 @@ public class PerformanceMapper implements RowMapper {
     @Override
     public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
         Performance performance = new Performance();
-
         performance.setPerformanceId(resultSet.getInt("id_przedstawienia"));
         performance.setSpectacleId(resultSet.getInt("id_spektaklu"));
         performance.setHallId(resultSet.getInt("id_sali"));

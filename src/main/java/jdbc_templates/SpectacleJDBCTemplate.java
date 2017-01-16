@@ -10,7 +10,9 @@ import javax.sql.DataSource;
 import java.util.List;
 
 /**
- * Created by Pawel on 2016-12-24.
+ * Wzorzec dla interfejsu JDBC implementujacy komunikacje z baza danych
+ * @author PawełPiędel
+ *
  */
 public class SpectacleJDBCTemplate implements SpectacleDao {
     private DataSource dataSource;
@@ -18,22 +20,38 @@ public class SpectacleJDBCTemplate implements SpectacleDao {
     private String tableName = "Spektakle";
 
 
+    /**
+     * Ustaw zrodlo danych
+     * @param dataSource zrodlo danych
+     */
     @Override
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * Stworz spektakl z tytulu
+     * @param title tytul sppektaklu
+     */
     @Override
     public void createFromTitle(String title) {
 
     }
 
+    /**
+     * Zwraca spektakl
+     * @param id id spektaklu
+     */
     @Override
     public Spectacle getSpectacle(Integer id) {
         return null;
     }
 
+    /**
+     * Zwraca liste spektaklow
+     * @return lista spektaklow
+     */
     @Override
     public List<Spectacle> listSpectacles() {
         String SQL = "SELECT * FROM "+tableName;
@@ -42,11 +60,20 @@ public class SpectacleJDBCTemplate implements SpectacleDao {
         return spectacles;
     }
 
+    /**
+     * Usun spektakl znajdac jego id
+     * @param id id spektaklu
+     */
     @Override
     public void delete(Integer id) {
 
     }
 
+    /**
+     * Aktualizuje spektakl
+     * @param id id spektaklu
+     * @param title tytul sppektaklu
+     */
     @Override
     public void update(Integer id, String title) {
 

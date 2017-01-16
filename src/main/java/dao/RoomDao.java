@@ -4,6 +4,11 @@ import model.Room;
 
 import java.util.List;
 
+/**
+ * Interfejs implementujacy logike biznesowa zwiazana z BD wg wzorca projektowego DAO zwiazany  z encja Sala
+ * @author PawełPiędel
+ */
+
 public interface RoomDao {
 
 	/**
@@ -24,6 +29,10 @@ public interface RoomDao {
 	 */
 	void updateRoom(int roomId);
 
+	/**
+	 *
+	 * @return liste sali
+	 */
 	List<Room> getAllRooms();
 
 }

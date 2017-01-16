@@ -13,37 +13,37 @@ import java.util.List;
 public interface SpectacleDao {
 
 	/**
-	 * 
+	 * Ustaw zrodlo danych
 	 * @param ds zrodlo danych
 	 */
 	void setDataSource(DataSource ds);
 
 	/**
-	 * 
+	 * Stworz spektakl z tytulu
 	 * @param title tytul sppektaklu
 	 */
 	void createFromTitle(String title);
 
 	/**
-	 * 
+	 * Zwraca spektakl
 	 * @param id id spektaklu
 	 */
 	Spectacle getSpectacle(Integer id);
 
 	/**
-	 *
+	 * Zwraca liste spektaklow
 	 * @return lista spektaklow
 	 */
 	List<Spectacle> listSpectacles();
 
 	/**
-	 * 
+	 * Usun spektakl znajdac jego id
 	 * @param id id spektaklu
 	 */
 	void delete(Integer id);
 
 	/**
-	 * 
+	 * Aktualizuje spektakl
 	 * @param id id spektaklu
 	 * @param title tytul sppektaklu
 	 */

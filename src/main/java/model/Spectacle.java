@@ -4,6 +4,7 @@ package model;
  * Created by Pawel_Piedel on 2017-01-15.
  */
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Spectacle {
     private Integer durationTime;
 
     /*Lista dat spektaklu*/
-    private List<Date> dates;
+    private List<Timestamp> dates;
 
     /**
      * @return id spektaklu
@@ -88,6 +89,24 @@ public class Spectacle {
         this.durationTime = durationTime;
     }
 
+    /**
+     * @return dokladne daty wraz z godzinami spektaklu
+     */
+    public List<Timestamp> getDates() {
+        return dates;
+    }
+
+    /**
+     * Ustawia dokladne daty wraz z godzinami spektaklu
+     * @param  dates dokladne daty wraz z godzinami spektaklu
+     */
+    public void setDates(List<Timestamp> dates) {
+        this.dates = dates;
+    }
+
+    /**
+     * Zwraca reprezentacje spektaklu w postaci lancucha znakow
+     */
     @Override
     public String toString() {
         return "Spectacle{" +
