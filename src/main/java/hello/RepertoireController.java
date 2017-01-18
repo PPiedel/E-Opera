@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -48,6 +49,7 @@ public class RepertoireController {
         }
 
         model.addAttribute("spectacles", spectacles);
+        model.addAttribute("performances", performancesFromDate);
 
         return "repertuar";
     }
@@ -61,12 +63,12 @@ public class RepertoireController {
     }
 
 
-    private List<Timestamp> findDatesOfSpectacle(Spectacle spectacle){
-        List<Timestamp> dates = new ArrayList<>(10);
+    private HashMap<Integer,Timestamp> findDatesOfSpectacle(Spectacle spectacle){
+        HashMap<Integer,Timestamp> dates = new HashMap<>(5);
 
         for (Performance performance: performancesFromDate){
             if (performance.getSpectacleId().equals(spectacle.getSpectacleId())){
-                dates.add(performance.getDate());
+                dates.put(performance.getPerformanceId(),performance.getDate());
             }
         }
         return dates;

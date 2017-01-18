@@ -6,6 +6,7 @@ document.onreadystatechange = function () {
     if (document.readyState == "complete") {
         addListenersForPlaces();
         addListenerForPreviusButton();
+        addListenerForNextButton();
     }
 };
 
@@ -30,32 +31,42 @@ function addListenerForPreviusButton() {
     $('.buttons #previousButton').click(function() {
         window.history.back();
     })
-
 }
 
-function writeCookie(name,value,days) {
-    var date, expires;
-    if (days) {
-        date = new Date();
-        date.setTime(date.getTime()+(days*24*60*60*1000));
-        expires = "; expires=" + date.toGMTString();
-    }else{
-        expires = "";
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
+function addListenerForNextButton() {
+    $('.buttons #nextButton').click(function() {
+        addToBasket();
+    })
 }
 
-function readCookie(name) {
-    var i, c, ca, nameEQ = name + "=";
-    ca = document.cookie.split(';');
-    for(i=0;i < ca.length;i++) {
-        c = ca[i];
-        while (c.charAt(0)==' ') {
-            c = c.substring(1,c.length);
+function addToBasket() {
+    $('#places tr').each(function(){
+        $(this).find('td.active').each(function(){
+            setCookie(this.getAttribute('value'),1,1);
+        })
+    })
+    
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
         }
-        if (c.indexOf(nameEQ) == 0) {
-            return c.substring(nameEQ.length,c.length);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
         }
     }
-    return '';
+    return "";
 }

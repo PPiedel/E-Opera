@@ -6,6 +6,7 @@ package model;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ public class Spectacle {
     private Integer durationTime;
 
     /*Lista dat spektaklu*/
-    private List<Timestamp> dates;
+    private HashMap<Integer,Timestamp> dates;
 
     /**
      * @return id spektaklu
@@ -90,17 +91,16 @@ public class Spectacle {
     }
 
     /**
-     * @return dokladne daty wraz z godzinami spektaklu
+     * @return dokladne daty wraz z godzinami spektaklu i id przedstawienia
      */
-    public List<Timestamp> getDates() {
+    public HashMap<Integer, Timestamp> getDates() {
         return dates;
     }
-
     /**
      * Ustawia dokladne daty wraz z godzinami spektaklu
-     * @param  dates dokladne daty wraz z godzinami spektaklu
+     * @param  dates dokladne daty wraz z godzinami spektaklu i id przedstawienia
      */
-    public void setDates(List<Timestamp> dates) {
+    public void setDates(HashMap<Integer, Timestamp> dates) {
         this.dates = dates;
     }
 

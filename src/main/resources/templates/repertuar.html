@@ -12,7 +12,7 @@
     <nav>
         <div class="row">
             <ul class="nav nav-justified">
-                <li class="table-bordered active"><a href="repertuar.html">Repertuar</a></li>
+                <li class="table-bordered "><a class="active" href="/repertuar">Repertuar</a></li>
                 <li class="table-bordered"><a href="#">Aktualności</a></li>
                 <li class="table-bordered"><a href="#">O Operze</a></li>
                 <li class="table-bordered"><a href="#">Kontakt</a></li>
@@ -22,7 +22,7 @@
         </div>
         <div class="row">
             <ul id="menuContainer" th:name="menuContainer" class="nav nav-justified ">
-                <li data-value="2017/01/15" class="active table-bordered" ><a href="#">PN<br/>15.01.2017</a></li>
+                <li data-value="2017/01/15" class="table-bordered" ><a class="active" href="#">PN<br/>15.01.2017</a></li>
                 <li data-value="2017/01/16"  class="table-bordered"><a href="#">WT<br/>16.01.2016</a></li>
                 <li data-value="2017/01/17" class="table-bordered"><a href="#">SR<br/>17.01.2016</a></li>
                 <li data-value="2017/01/18" class="table-bordered"><a href="#">CZW<br/>18.01.2016</a></li>
@@ -39,7 +39,9 @@
                 <img class="list-group-item-text" style="float:left; max-width: 25px" src="/img/clock.png"/>
                 <ul  style="float: left" class="list-inline">
                     <th:block th:object="${spectacle}">
-                        <li th:value="${spectacle.spectacleId}"  class="list-group-item-text" th:each="date : *{dates}" th:text="${#dates.format(date, 'HH:mm')}"></li>
+                        <li   class="list-group-item-text" th:each="date : *{dates}" th:value="${date.key}"  th:text="${#dates.format(date.value, 'HH:mm')}">
+
+                        </li>
                     </th:block>
                 </ul>
                 <div style="clear: both"></div>
