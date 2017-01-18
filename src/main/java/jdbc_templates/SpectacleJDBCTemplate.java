@@ -30,22 +30,17 @@ public class SpectacleJDBCTemplate implements SpectacleDao {
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
-    /**
-     * Stworz spektakl z tytulu
-     * @param title tytul sppektaklu
-     */
-    @Override
-    public void createFromTitle(String title) {
-
-    }
 
     /**
      * Zwraca spektakl
      * @param id id spektaklu
      */
     @Override
-    public Spectacle getSpectacle(Integer id) {
-        return null;
+    public Spectacle findById(Integer id) {
+        String SQL = "SELECT * FROM " + tableName + " WHERE id_spektaklu = ?";
+        Spectacle spectacle = jdbcTemplateObject.queryForObject(SQL,
+                new Object[]{id}, new SpectacleMapper());
+        return spectacle;
     }
 
     /**
@@ -59,6 +54,7 @@ public class SpectacleJDBCTemplate implements SpectacleDao {
                 new SpectacleMapper());
         return spectacles;
     }
+
 
     /**
      * Usun spektakl znajdac jego id

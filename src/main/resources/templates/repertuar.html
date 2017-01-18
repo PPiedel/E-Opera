@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>E-Opera</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -39,7 +39,7 @@
                 <img class="list-group-item-text" style="float:left; max-width: 25px" src="/img/clock.png"/>
                 <ul  style="float: left" class="list-inline">
                     <th:block th:object="${spectacle}">
-                        <li class="list-group-item-text" th:each="date : *{dates}" th:text="${#dates.format(date, 'HH:mm')}"></li>
+                        <li th:value="${spectacle.spectacleId}"  class="list-group-item-text" th:each="date : *{dates}" th:text="${#dates.format(date, 'HH:mm')}"></li>
                     </th:block>
                 </ul>
                 <div style="clear: both"></div>
@@ -47,11 +47,13 @@
 
     </div>
 
-    <script src="/js/jquery-3.1.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/repertuar.js"></script>
+
 
 </div>
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/repertuar.js"></script>
 
 </body>
 </html>

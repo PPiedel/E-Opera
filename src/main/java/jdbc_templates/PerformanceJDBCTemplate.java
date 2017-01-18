@@ -2,9 +2,8 @@ package jdbc_templates;
 
 import dao.PerformanceDao;
 import mappers.PerformanceMapper;
-import mappers.SpectacleMapper;
+
 import model.Performance;
-import model.Spectacle;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -24,7 +23,7 @@ import java.util.List;
 public class PerformanceJDBCTemplate implements PerformanceDao {
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
-    private String przedstawienia = "Przedstawienia";
+    private String tableName = "Przedstawienia";
     private DateFormat dateFormat = new SimpleDateFormat("YYYY/MM/DD");
 
     /**
@@ -40,21 +39,23 @@ public class PerformanceJDBCTemplate implements PerformanceDao {
 
     /**
      * Znajdz przedstawienie
-     * @param id id przedstawienia
+     * @param id przedstawienia
      */
     @Override
     public Performance findById(Integer id) {
-        return null;
+        String SQL = "SELECT * FROM " + tableName + " WHERE id_przedstawienia = "+id;
+        List <Performance> performances = jdbcTemplateObject.query(SQL,new PerformanceMapper());
+        return performances.get(0);
     }
 
 
     /**
-     * Znajdz wszystkie przedstawienia
+     * Znajdz wszystkie tableName
      * @return lista wszystkich przedstawien
      */
     @Override
     public List<Performance> listAllPerformances() {
-        String SQL = "SELECT * FROM "+ przedstawienia;
+        String SQL = "SELECT * FROM "+ tableName;
         List <Performance> performances = jdbcTemplateObject.query(SQL, new PerformanceMapper());
         return performances;
     }

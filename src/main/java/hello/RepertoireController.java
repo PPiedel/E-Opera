@@ -23,8 +23,8 @@ import java.util.List;
  */
 @Controller
 public class RepertoireController {
-    private PerformanceJDBCTemplate performanceJDBCTemplate;
-    private SpectacleJDBCTemplate spectacleJDBCTemplate;
+    private PerformanceJDBCTemplate performanceJDBCTemplate = (PerformanceJDBCTemplate) Application.context.getBean("performanceJDBCTemplate");
+    private SpectacleJDBCTemplate spectacleJDBCTemplate = (SpectacleJDBCTemplate) Application.context.getBean("spectacleJDBCTemplate");
     private List<Performance> performancesFromDate;
     private List<Spectacle> spectacles;
 
@@ -36,12 +36,11 @@ public class RepertoireController {
      */
 
     @RequestMapping("/repertuar")
-    public String greeting(@RequestParam(value="date", required=false, defaultValue="2017/01/15") String dateString, Model model) {
+    public String repertoire(@RequestParam(value="date", required=false, defaultValue="2017/01/15") String dateString, Model model) {
         Date date = new Date(dateString);
-        performanceJDBCTemplate = (PerformanceJDBCTemplate) Application.context.getBean("performanceJDBCTemplate");
+
         performancesFromDate = performanceJDBCTemplate.listPerformancesFromDate(date);
 
-        spectacleJDBCTemplate = (SpectacleJDBCTemplate) Application.context.getBean("spectacleJDBCTemplate");
         spectacles = spectacleJDBCTemplate.listSpectacles();
 
         for (Spectacle spectacle : spectacles){
@@ -52,6 +51,15 @@ public class RepertoireController {
 
         return "repertuar";
     }
+
+    @RequestMapping("/repertuar/podglad_sali")
+    public String preview(@RequestParam(value = "performance_id", required = false,defaultValue = "1") Integer id, Model model){
+
+        Performance performance = performanceJDBCTemplate.findById(id);
+        model.addAttribute("performance",performance);
+        return "podglad_sali";
+    }
+
 
     private List<Timestamp> findDatesOfSpectacle(Spectacle spectacle){
         List<Timestamp> dates = new ArrayList<>(10);

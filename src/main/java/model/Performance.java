@@ -22,14 +22,6 @@ public class Performance {
     private Integer bookingsNumber;
     private Timestamp date;
 
-    public Integer getRepertoireIdl() {
-        return repertoireIdl;
-    }
-
-    public void setRepertoireIdl(Integer repertoireIdl) {
-        this.repertoireIdl = repertoireIdl;
-    }
-
     public Integer getPerformanceId() {
         return performanceId;
     }
@@ -52,6 +44,14 @@ public class Performance {
 
     public void setHallId(Integer hallId) {
         this.hallId = hallId;
+    }
+
+    public Integer getRepertoireIdl() {
+        return repertoireIdl;
+    }
+
+    public void setRepertoireIdl(Integer repertoireIdl) {
+        this.repertoireIdl = repertoireIdl;
     }
 
     public Integer getTicketsAvailableNumber() {

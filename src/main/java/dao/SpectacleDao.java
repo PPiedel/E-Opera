@@ -18,17 +18,12 @@ public interface SpectacleDao {
 	 */
 	void setDataSource(DataSource ds);
 
-	/**
-	 * Stworz spektakl z tytulu
-	 * @param title tytul sppektaklu
-	 */
-	void createFromTitle(String title);
 
 	/**
 	 * Zwraca spektakl
 	 * @param id id spektaklu
 	 */
-	Spectacle getSpectacle(Integer id);
+	Spectacle findById(Integer id);
 
 	/**
 	 * Zwraca liste spektaklow

@@ -14,12 +14,13 @@ public class PerformanceMapper implements RowMapper {
     /**
      * Metoda mapujaca wiersz z BD na klase Spectacle
      * @param resultSet zbior wynikow
-     * @param rowNum numer wiersza w BD
+     * @param rownNum numer wiersza w BD
      * @return obiekt klasy Performance
      */
     @Override
-    public Object mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+    public Performance mapRow(ResultSet resultSet, int rownNum) throws SQLException {
         Performance performance = new Performance();
+
         performance.setPerformanceId(resultSet.getInt("id_przedstawienia"));
         performance.setSpectacleId(resultSet.getInt("id_spektaklu"));
         performance.setHallId(resultSet.getInt("id_sali"));

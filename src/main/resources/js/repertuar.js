@@ -6,14 +6,22 @@ document.onreadystatechange = function () {
     console.log('onreadystate');
     if (document.readyState == "complete") {
         /*addListeners();*/
-        addListener();
+        addListenersForDays();
+        addListenersForSpectacleHours()
     }
 };
 
-function addListener() {
+function addListenersForDays() {
     $('#menuContainer li').click(function() {
         var value = $(this).attr('data-value');
         location.href = add_url_parameter(location.href, 'date', value);
+    })
+}
+
+function addListenersForSpectacleHours() {
+    $('.list-inline li').click(function() {
+        var value = $(this).attr('value');
+        console.log(value);
     })
 }
 

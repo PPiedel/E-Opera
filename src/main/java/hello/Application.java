@@ -71,6 +71,15 @@ public class Application {
             System.out.println(spectacle.toString());
         }*/
 
+       /* SpectacleJDBCTemplate spectacleJDBCTemplate = (SpectacleJDBCTemplate) Application.context.getBean("spectacleJDBCTemplate");
+        Spectacle spectacle = spectacleJDBCTemplate.findById(1);
+        System.out.println(spectacle.toString());
+
+        PerformanceJDBCTemplate performanceJDBCTemplate = (PerformanceJDBCTemplate) Application.context.getBean("performanceJDBCTemplate");
+        Performance performance = performanceJDBCTemplate.findById(1);
+        System.out.println(performance.toString());*/
+
+
     }
 
     private static List<Timestamp> findDatesOfSpectacle(Spectacle spectacle, List<Performance> performancesFromDate){

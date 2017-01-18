@@ -1,0 +1,9 @@
+h1{
+    padding: 20px;
+    text-align: center;
+}
+
+table {
+    border-collapse: separate !important;
+    border-spacing: 1em !important;
+}
