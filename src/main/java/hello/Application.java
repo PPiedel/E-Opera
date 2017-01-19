@@ -40,5 +40,5 @@ public class Application {
         context = new ClassPathXmlApplicationContext("beans.xml");
         SpringApplication.run(Application.class, args);
     }
-    
+
 }

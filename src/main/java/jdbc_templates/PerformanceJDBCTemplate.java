@@ -60,6 +60,10 @@ public class PerformanceJDBCTemplate implements PerformanceDao {
         return performances;
     }
 
+    /**
+     * Znajdz wszystkie przedstawienia z konkretnej dany
+     * @return lista wszystkich przedstawien z daty
+     */
     @Override
     public List<Performance> listPerformancesFromDate(Date date) {
         String perfDate = dateFormat.format(date);
@@ -67,18 +71,6 @@ public class PerformanceJDBCTemplate implements PerformanceDao {
         String SQL ="SELECT *\n" +
                 "FROM Przedstawienia\n" +
                 "WHERE TO_CHAR(data,'YYYY/MM/DD') = TO_CHAR('"+perfDate+"')";
-
-        List <Performance> performances = jdbcTemplateObject.query(SQL, new PerformanceMapper());
-
-        return performances;
-    }
-
-    public List<Performance> listPerformancesOfOneSpectacleFromDate(Date date, Integer spectacleId) {
-        String perfDate = dateFormat.format(date);
-
-        String SQL ="SELECT *\n" +
-                "FROM Przedstawienia\n" +
-                "WHERE TO_CHAR(data,'YYYY/MM/DD') = TO_CHAR('"+perfDate+"') " + " AND ID_SPEKTAKLU = " + spectacleId;
 
         List <Performance> performances = jdbcTemplateObject.query(SQL, new PerformanceMapper());
 

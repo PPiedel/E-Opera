@@ -54,6 +54,11 @@ public class RepertoireController {
         return "repertuar";
     }
 
+    /**
+     * Metoda przechwytująca ścieżkę "/repertuar'
+     *
+     * @return strone z podgladem sali
+     */
     @RequestMapping("/repertuar/podglad_sali")
     public String preview(@RequestParam(value = "performance_id", required = false,defaultValue = "1") Integer id, Model model){
         model.addAttribute("id",id);
@@ -61,6 +66,11 @@ public class RepertoireController {
     }
 
 
+    /**
+     * Metoda przechwytująca ścieżkę "/repertuar'
+     * @param spectacle spektakl
+     * @return zbiór par postaci {id_przedstawienia,data} dla konkretnego spektaklu
+     */
     private HashMap<Integer,Timestamp> findDatesOfSpectacle(Spectacle spectacle){
         HashMap<Integer,Timestamp> dates = new HashMap<>(5);
 
