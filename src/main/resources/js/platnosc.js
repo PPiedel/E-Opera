@@ -6,23 +6,25 @@ document.onreadystatechange = function () {
     if (document.readyState == "complete") {
        addOnlinePaymentButtonListener();
        addOnTheSpotPaymentListener();
-       addListenerForCancelButton()
+       addListenerForCancelButton();
+       addListenerForNextPaymentButton();
     }
 };
 
 function addOnlinePaymentButtonListener() {
     $('.payment-buttons #onlinePayment').click(function() {
         $('#onlinePaymentButtons').toggle('slow', function() {
-            console.log('animacja');
         });
     })
 }
 
 function addOnTheSpotPaymentListener() {
     $('.payment-buttons #onTheSpotPayment').click(function() {
-        $('#onlinePaymentButtons').toggle('slow', function() {
-            console.log('animacja');
-        });
+        if($('#onlinePaymentButtons').is(":visible") ){
+            $('#onlinePaymentButtons').toggle('slow', function() {
+            });
+        }
+
     })
 
 }
@@ -31,17 +33,17 @@ function addListenerForCancelButton() {
     $('.payment-summary-buttons #cancel_payment').click(function() {
         if (confirm('Czy jesteś pewien, że chcesz anulować transakcję ?')) {
             location.href = 'http://localhost:8080/repertuar';
-            console.log(location.href)
         }
 
     })
 }
 
 
-function addListenerForNextButton() {
+function addListenerForNextPaymentButton() {
     $('.payment-summary-buttons #payment_next').click(function() {
-        location.href = add_url_parameter('http://localhost:8080/podsumowanie/platnosc','status','success')
+        location.href = add_url_parameter('http://localhost:8080/podsumowanie/platnosc/end','status','success')
     });
+
 
 }
 
