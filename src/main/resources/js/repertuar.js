@@ -21,7 +21,8 @@ function addListenersForDays() {
 function addListenersForSpectacleHours() {
     $('.list-inline li').click(function() {
         var value = $(this).attr('value');
-        console.log(value);
+        console.log(location.href);
+        location.href = add_url_parameter('http://localhost:8080/repertuar/podglad_sali','performance_id',value)
     })
 }
 

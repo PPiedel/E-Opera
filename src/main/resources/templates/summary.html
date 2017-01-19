@@ -4,6 +4,7 @@
     <title>E-Opera</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/podsumowanie.css"/>
 
 
 </head>
@@ -12,7 +13,7 @@
         <nav>
             <div class="row">
                 <ul class="nav nav-justified">
-                    <li class="table-bordered active"><a href="">Repertuar</a></li>
+                    <li class="table-bordered "><a class="active" href="/repertuar">Repertuar</a></li>
                     <li class="table-bordered"><a href="#">Aktualności</a></li>
                     <li class="table-bordered"><a href="#">O Operze</a></li>
                     <li class="table-bordered"><a href="#">Kontakt</a></li>
@@ -21,7 +22,40 @@
             </div>
         </nav>
         <h1>System rezerwacji internetowej Opery Wrocławskiej</h1>
+        <div>
+            <h2 >Podsumowanie</h2>
+        </div>
+
+
+        <div class="content text-center">
+            <p  th:text="${spectacle.title}"></p>
+            <p  > (</p>
+            <p  th:text="${#dates.format(performance.date, 'DD.MM.YYYY')}"></p>
+            <p >)</p>
+            <p style="padding-left: 10px">Godz. </p>
+            <p th:text="${#dates.format(performance.date, 'HH:MM')}"></p>
+            <p style="padding-left: 20px">x</p>
+            <p th:text="${places}"></p>
+            <div style="clear: both"></div>
+            <hr class="pull-right" width="100px"/>
+            <div style="clear: both"></div>
+            <div class="pull-right container-fluid">
+                <p th:text="${performance.price}*${places}"></p>
+                <p >zł</p>
+                <div style="clear: both"></div>
+            </div>
+
+        </div>
+
+
+        <div class="summary-buttons text-center">
+            <a name="cancelButton" id="cancelButton" href="#" class="btn btn-lg btn-default">Anuluj</a>
+            <a name="payButton" id="payButton" href="#" class="btn btn-lg btn-default">Płacę</a>
+        </div>
     </div>
 
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/summary.js"></script>
 </body>
 </html>

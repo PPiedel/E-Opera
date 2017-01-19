@@ -29,6 +29,7 @@ public class PerformanceMapper implements RowMapper {
         performance.setPurchasedTicketsNumber(resultSet.getInt("liczba_kupionych_biletow"));
         performance.setBookingsNumber(resultSet.getInt("liczba_rezerwacji"));
         performance.setDate(resultSet.getTimestamp("data"));
+        performance.setPrice(resultSet.getInt("cena"));
 
         return performance;
     }

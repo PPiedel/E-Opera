@@ -21,6 +21,7 @@ public class Performance {
     private Integer purchasedTicketsNumber;
     private Integer bookingsNumber;
     private Timestamp date;
+    private Integer price;
 
     public Integer getPerformanceId() {
         return performanceId;
@@ -84,6 +85,14 @@ public class Performance {
 
     public void setDate(Timestamp date) {
         this.date = date;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     @Override

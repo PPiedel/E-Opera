@@ -1,0 +1,18 @@
+h1{
+    padding: 20px;
+    text-align: center;
+}
+
+h2{
+    padding: 20px;
+    text-align: center;
+}
+
+p{
+    float: left;
+}
+
+.content {
+    display: table;
+    margin: 0 auto;
+}

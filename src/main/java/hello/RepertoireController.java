@@ -36,7 +36,7 @@ public class RepertoireController {
      * @return strone z repertuarem repertuar.html
      */
 
-    @RequestMapping("/repertuar")
+    @RequestMapping(value = {"/repertuar","/",""})
     public String repertoire(@RequestParam(value="date", required=false, defaultValue="2017/01/15") String dateString, Model model) {
         Date date = new Date(dateString);
 
@@ -56,9 +56,7 @@ public class RepertoireController {
 
     @RequestMapping("/repertuar/podglad_sali")
     public String preview(@RequestParam(value = "performance_id", required = false,defaultValue = "1") Integer id, Model model){
-
-        Performance performance = performanceJDBCTemplate.findById(id);
-        model.addAttribute("performance",performance);
+        model.addAttribute("id",id);
         return "podglad_sali";
     }
 

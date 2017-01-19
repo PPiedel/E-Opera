@@ -35,12 +35,31 @@ function addListenerForPreviusButton() {
 
 function addListenerForNextButton() {
     $('.buttons #nextButton').click(function() {
-        addToBasket();
+        addPlacesToBasket();
+        var performance_id = $('#places').attr('value');
+        console.log(performance_id);
+        var places = countActivePlaces();
+        console.log(places);
+
+        var first_param = add_url_parameter('http://localhost:8080/podsumowanie','performance_id',performance_id);
+        console.log(first_param);
+        location.href = add_url_parameter(first_param,'places',places);
+        console.log(location.href)
     })
 }
 
-function addToBasket() {
-    $('#places tr').each(function(){
+function countActivePlaces() {
+    var count = 0;
+    $('#places').find('tr').each(function(){
+        $(this).find('td.active').each(function(){
+          count++;
+        })
+    });
+    return count;
+}
+
+function addPlacesToBasket() {
+    $('#places').find('tr').each(function(){
         $(this).find('td.active').each(function(){
             setCookie(this.getAttribute('value'),1,1);
         })
@@ -69,4 +88,32 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+function add_url_parameter(url, param, value){
+    console.log('Zmieniam URL');
+    var hash       = {};
+    var parser     = document.createElement('a');
+
+    parser.href    = url;
+
+    var parameters = parser.search.split(/\?|&/);
+
+    for(var i=0; i < parameters.length; i++) {
+        if(!parameters[i])
+            continue;
+
+        var ary      = parameters[i].split('=');
+        hash[ary[0]] = ary[1];
+    }
+
+    hash[param] = value;
+
+    var list = [];
+    Object.keys(hash).forEach(function (key) {
+        list.push(key + '=' + hash[key]);
+    });
+
+    parser.search = '?' + list.join('&');
+    return parser.href;
 }
