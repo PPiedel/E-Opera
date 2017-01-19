@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>E-Opera</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+
+
+</head>
+<body>
+<div class="container">
+    <nav>
+        <div class="row">
+            <ul class="nav nav-justified">
+                <li class="table-bordered "><a class="active" href="/repertuar">Repertuar</a></li>
+                <li class="table-bordered"><a href="#">Aktualności</a></li>
+                <li class="table-bordered"><a href="#">O Operze</a></li>
+                <li class="table-bordered"><a href="#">Kontakt</a></li>
+                <li class="table-bordered"><img style=" margin: auto; max-width: 50px" src="/img/logged.png"/></li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="text-center">System rezerwacji internetowej Opery Wrocławskiej</h1>
+        <br/><br/>
+        <div class="text-center" th:switch="${status}">
+            <h2 th:case='success' >Gratulacje !</h2>
+            <h2 th:case='fail' >Coś poszło nie tak :/</h2>
+            <h2 th:case='another' >Przepraszamy</h2>
+            <h2 th:case="*" >Coś poszło nie tak :/</h2>
+        </div>
+        <br/><br/><br/><br/>
+        <div class="text-center" th:switch="${status}">
+            <h2 th:case='success' >Twoja wpłata została zaksięgowana.<br/>Dziękujemy i życzymy udanego wieczoru w Operze ! </h2>
+            <h2 th:case='fail' >Płatność nie powiodła się.<br/>Spróbuj ponownie później.</h2>
+            <h2 th:case='another' >Posiadasz inne nieopłacone zamówienia.<br/> Nie możesz złożyć kolejnego bez opłacenia poprzednich.</h2>
+            <h2 th:case="*" >Coś poszło nie tak :/</h2>
+        </div>
+
+</div>
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/end.js"></script>
+</body>
+</html>

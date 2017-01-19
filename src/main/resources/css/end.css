@@ -3,10 +3,6 @@ h1{
     text-align: center;
 }
 
-table {
-    border-collapse: separate !important;
-    border-spacing: 1em !important;
-}
 img{
     display:table-cell;
     vertical-align:middle;

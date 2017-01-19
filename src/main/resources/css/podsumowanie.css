@@ -1,3 +1,9 @@
+img{
+    display:table-cell;
+    vertical-align:middle;
+    margin:auto;
+}
+
 h1{
     padding: 20px;
     text-align: center;

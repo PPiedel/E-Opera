@@ -17,7 +17,7 @@
                     <li class="table-bordered"><a href="#">Aktualności</a></li>
                     <li class="table-bordered"><a href="#">O Operze</a></li>
                     <li class="table-bordered"><a href="#">Kontakt</a></li>
-                    <li class="table-bordered"><img style=" margin: 5px; max-width: 50px" src="/img/logged.png"/></li>
+                    <li class="table-bordered"><img style=" margin: auto; max-width: 50px" src="/img/logged.png"/></li>
                 </ul>
             </div>
         </nav>
@@ -33,7 +33,7 @@
             <p  th:text="${#dates.format(performance.date, 'DD.MM.YYYY')}"></p>
             <p >)</p>
             <p style="padding-left: 10px">Godz. </p>
-            <p th:text="${#dates.format(performance.date, 'HH:MM')}"></p>
+            <p th:text="${#dates.format(performance.date, 'HH:mm')}"></p>
             <p style="padding-left: 20px">x</p>
             <p th:text="${places}"></p>
             <div style="clear: both"></div>
@@ -56,6 +56,6 @@
 
     <script src="/js/jquery-3.1.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/summary.js"></script>
+    <script src="/js/podsumowanie.js"></script>
 </body>
 </html>

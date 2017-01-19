@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>E-Opera</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/platnosc.css"/>
+
+
+</head>
+<body>
+<div class="container">
+    <nav>
+        <div class="row">
+            <ul class="nav nav-justified">
+                <li class="table-bordered "><a class="active" href="/repertuar">Repertuar</a></li>
+                <li class="table-bordered"><a href="#">Aktualności</a></li>
+                <li class="table-bordered"><a href="#">O Operze</a></li>
+                <li class="table-bordered"><a href="#">Kontakt</a></li>
+                <li class="table-bordered"><img style=" margin: auto; max-width: 50px" src="/img/logged.png"/></li>
+            </ul>
+        </div>
+    </nav>
+    <h1 class="text-center">System rezerwacji internetowej Opery Wrocławskiej</h1>
+    <div class="text-center">
+        <h2 >Płatność</h2>
+    </div>
+    <div class="payment-buttons text-center">
+        <a name="onTheSpotPayment" id="onTheSpotPayment" href="#" class="btn btn-lg btn-default">Na miejscu</a>
+        <a name="onlinePayment" id="onlinePayment" href="#" class="btn btn-lg btn-default">Online</a>
+        <div class="container" style="display: none; margin-top: 5px" id="onlinePaymentButtons">
+            <a name="card" id="card" href="#" class="btn btn-default ">Karta</a>
+            <a name="transfer" id="transfer" href="#" class="btn btn-default ">Przelew</a>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div class="pull-right payment-summary-buttons text-center">
+        <a name="cancel_payment" id="cancel_payment" href="#" class="btn btn-lg btn-default">Anuluj</a>
+        <a name="payment_next" id="payment_next" href="#" class="btn btn-lg btn-default">Dalej</a>
+    </div>
+
+</div>
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/platnosc.js"></script>
+</body>
+</html>

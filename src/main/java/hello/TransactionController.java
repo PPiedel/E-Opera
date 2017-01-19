@@ -29,6 +29,18 @@ public class TransactionController {
         model.addAttribute("spectacle",spectacle);
         model.addAttribute("places",places);
 
-        return "summary";
+        return "podsumowanie";
+    }
+
+    @RequestMapping("/podsumowanie/platnosc")
+    public String payment(){
+        return "platnosc";
+    }
+
+    @RequestMapping("/podsumowanie/platnosc/end")
+    public String end(@RequestParam(value = "status", required = false,defaultValue = "success")String status,
+                      Model model){
+        model.addAttribute("status",status);
+        return "end";
     }
 }
