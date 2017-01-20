@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-    <nav>
+    <nav >
         <div class="row">
             <ul class="nav nav-justified">
                 <li class="table-bordered "><a class="active" href="/repertuar">Repertuar</a></li>
@@ -36,7 +36,7 @@
 
     <div class="list-group">
             <a href="#" class="list-group-item" th:each="spectacle  : ${spectacles}" >
-                <h4 class="list-group-item-heading" th:text="${spectacle.title}"></h4>
+                <h4 th:value="${spectacle.spectacleId}" class="list-group-item-heading" th:text="${spectacle.title}"></h4>
                 <img class="list-group-item-text" style="float:left; max-width: 25px" src="/img/clock.png"/>
                 <ul  style="float: left" class="list-inline">
                     <th:block th:object="${spectacle}">

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>E-Opera</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/spektakl.css"/>
+
+
+</head>
+<body>
+<div class="container">
+    <nav>
+        <div class="row">
+            <ul class="nav nav-justified">
+                <li class="table-bordered "><a class="active" href="/repertuar">Repertuar</a></li>
+                <li class="table-bordered"><a href="#">Aktualności</a></li>
+                <li class="table-bordered"><a href="#">O Operze</a></li>
+                <li class="table-bordered"><a href="#">Kontakt</a></li>
+                <li class="table-bordered"><img class="center-block" style="margin: auto; max-width: 50px" src="/img/logged.png"/></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div style="margin: 10px" class="container col-lg-3" th:switch="${spectacle.spectacleId}">
+        <div >
+            <img th:case="'1'" src="/img/plakat_trubadur.jpg"/>
+        </div>
+        <div th:case="'2'">
+            <img src="/img/plakat_carmen.jpg"/>
+        </div>
+        <div th:case="'3'">
+            <img src="/img/plakat_wesele.jpg"/>
+        </div>
+        <div th:case="'4'">
+            <img src="/img/plakat_dziadek.jpg"/>
+        </div>
+        <div th:case="'5'">
+            <img src="/img/plakat_sid.jpg"/>
+        </div>
+        <div th:case="'6'">
+            <img src="/img/plakat_zemsta.jpg"/>
+        </div>
+        <div th:case="'6'">
+            <img src="/img/plakat_alicja.jpg"/>
+        </div>
+    </div>
+    <div style="padding: 10px" class="container col-lg-4"  >
+        <h1 th:text="'Tytul : ' + ${spectacle.title}"></h1>
+        <h4 th:text="'Czas trwania : '+${spectacle.durationTime} + 'min.'" ></h4>
+    </div>
+    <div style="padding: 10px"  class="container col-lg-12" >
+        <p th:text="${spectacle.description}"></p>
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

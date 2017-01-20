@@ -7,12 +7,13 @@ document.onreadystatechange = function () {
     if (document.readyState == "complete") {
         /*addListeners();*/
         addListenersForDays();
-        addListenersForSpectacleHours()
+        addListenersForSpectacleHours();
+        addListenersForTitles();
     }
 };
 
 function addListenersForDays() {
-    $('#menuContainer li').click(function() {
+    $('#menuContainer').find('li').click(function() {
         var value = $(this).attr('data-value');
         location.href = add_url_parameter(location.href, 'date', value);
     })
@@ -23,6 +24,14 @@ function addListenersForSpectacleHours() {
         var value = $(this).attr('value');
         console.log(location.href);
         location.href = add_url_parameter('http://localhost:8080/repertuar/podglad_sali','performance_id',value)
+    })
+}
+
+function addListenersForTitles() {
+    $('.list-group h4').click(function() {
+        var value = $(this).attr('value');
+        console.log(location.href);
+        location.href = add_url_parameter('http://localhost:8080/spektakl','spectacle_id',value)
     })
 }
 

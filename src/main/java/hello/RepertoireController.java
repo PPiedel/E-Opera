@@ -65,9 +65,22 @@ public class RepertoireController {
         return "podglad_sali";
     }
 
+    /*
+     * Metoda przechwytująca ścieżkę "/spektakl'
+     * @param spectacle_id id spektaklu
+     * @return strone z detalami spektklu
+     */
+    @RequestMapping("/spektakl")
+    public String spectacle(@RequestParam(value = "spectacle_id",required = false,defaultValue = "1") Integer id, Model model){
+        Spectacle spectacle = spectacleJDBCTemplate.findById(id);
+
+        model.addAttribute("spectacle",spectacle);
+        return "spektakl";
+    }
+
 
     /**
-     * Metoda przechwytująca ścieżkę "/repertuar'
+     * Metoda zwracajaca zbiór dat i id_przedstawien dla danego spektkalu
      * @param spectacle spektakl
      * @return zbiór par postaci {id_przedstawienia,data} dla konkretnego spektaklu
      */
@@ -81,5 +94,17 @@ public class RepertoireController {
         }
         return dates;
     }
+
+    private Spectacle findSPectacleWithId(Integer id){
+        Spectacle spectacle = new Spectacle();
+        for (Spectacle s: spectacles){
+            if (s.getSpectacleId().equals(id)){
+                return s;
+            }
+        }
+        return spectacle;
+    }
+
+
 
 }
