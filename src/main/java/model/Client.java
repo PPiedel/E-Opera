@@ -2,6 +2,7 @@ package model;
 
 import com.sun.org.apache.xpath.internal.operations.Or;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,9 @@ public class Client {
 	private Account account;
 	private List<Order> orders;
 	private List<Booking> bookings;
+	private int maxOrders = 4;
+	private int maxBookings = 10;
+
 
 	public String getName() {
 		return this.name;
@@ -75,9 +79,15 @@ public class Client {
 	 * 
 	 * @param age wiek
 	 */
-	public void setAge(int age) {
-		this.age = age;
+	public boolean setAge(int age) {
+		boolean setted = false;
+		if (age>=18){
+			this.age = age;
+			setted = true;
+		}
+		return setted;
 	}
+
 
 	public int getPesel() {
 		return this.pesel;
@@ -106,4 +116,39 @@ public class Client {
 	public void setAccount(Account account) {
 		this.account = account;
 	}
+
+	public boolean addOrder(Order order){
+		boolean added = false;
+		if (orders ==null){
+			orders = new ArrayList<>(2);
+			orders.add(order);
+			added = true;
+		}
+		else {
+			if (orders.size()<=maxOrders){
+				orders.add(order);
+				added = true;
+			}
+		}
+
+		return added;
+	}
+
+	public boolean addBooking(Booking booking){
+		boolean added = false;
+		if (bookings == null){
+			bookings = new ArrayList<>(2);
+			bookings.add(booking);
+			added = true;
+		}
+		else {
+			if (bookings.size()<=maxBookings){
+				bookings.add(booking);
+				added = true;
+			}
+		}
+		return added;
+	}
+
+
 }
