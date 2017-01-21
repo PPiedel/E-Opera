@@ -29,7 +29,7 @@ function addListenersForPlaces() {
 
 function addListenerForPreviusButton() {
     $('.buttons #previousButton').click(function() {
-        window.history.back();
+        location.href = "http://localhost:8080/repertuar"
     })
 }
 
