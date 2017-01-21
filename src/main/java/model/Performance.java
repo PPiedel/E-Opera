@@ -5,6 +5,7 @@ package model;
  */
 
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Klasa implementujaca logike zwiazana z baza danych. Zwiazana z encja Przedstawienie
@@ -190,5 +191,13 @@ public class Performance {
                 ", bookingsNumber=" + bookingsNumber +
                 ", date=" + date +
                 '}';
+    }
+
+    public Integer purchaseTickets(int ticketsNumber){
+        if (ticketsAvailableNumber>=ticketsNumber){
+            ticketsAvailableNumber = ticketsAvailableNumber - ticketsNumber;
+            purchasedTicketsNumber = purchasedTicketsNumber + ticketsNumber;
+        }
+        return ticketsAvailableNumber;
     }
 }
