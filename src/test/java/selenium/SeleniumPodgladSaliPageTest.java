@@ -33,4 +33,10 @@ public class SeleniumPodgladSaliPageTest extends Locomotive {
         click("#previousButton")
                 .validatePresent("#performances");
     }
+
+    @Test
+    public void testNextButtonClick(){
+        click("#nextButton")
+                    .validatePresent("#summary");
+    }
 }
